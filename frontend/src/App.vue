@@ -8,13 +8,11 @@ import type { OverviewResponse } from "./types";
 import FeatureStrip from "./components/FeatureStrip.vue";
 import MetricGrid from "./components/MetricGrid.vue";
 import OperationsTable from "./components/OperationsTable.vue";
+import StagePage from "./pages/StagePage.vue";
 
 const overview = ref<OverviewResponse>(createFallbackOverview());
 const notice = ref(REQUEST_MESSAGES.overviewFallback);
-
-function goHealth() {
-  window.location.href = REQUEST_MESSAGES.healthPath;
-}
+const activeView = ref<"overview" | "stage">("stage");
 
 onMounted(async () => {
   try {
@@ -33,9 +31,17 @@ onMounted(async () => {
         <span class="brand-code">{{ APP_CODE }}</span>
         <h1 class="brand-title">{{ APP_NAME }}</h1>
       </div>
-      <el-button type="primary" @click="goHealth">API Health</el-button>
+      <el-radio-group v-model="activeView" size="large">
+        <el-radio-button label="stage">角色开演台</el-radio-button>
+        <el-radio-button label="overview">运营总览</el-radio-button>
+      </el-radio-group>
     </header>
-    <section class="workspace">
+
+    <section v-if="activeView === 'stage'" class="workspace stage-workspace">
+      <StagePage />
+    </section>
+
+    <section v-else class="workspace">
       <div class="lead-grid">
         <article class="hero-panel">
           <span class="pill">{{ notice }}</span>

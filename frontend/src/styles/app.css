@@ -166,3 +166,411 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== 角色开演台 ===== */
+.stage-workspace {
+  width: min(1280px, calc(100vw - 32px));
+}
+
+.stage-head h2 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 2.6vw, 32px);
+}
+
+.stage-head p {
+  margin: 0 0 22px;
+  color: color-mix(in srgb, #19212e 72%, #3268b8 28%);
+  line-height: 1.8;
+}
+
+.stage-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.stage-side {
+  position: sticky;
+  top: 18px;
+}
+
+.stage-main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panel {
+  border: 1px solid color-mix(in srgb, #19212e 13%, transparent);
+  background: color-mix(in srgb, #f4f7fb 88%, white 12%);
+  border-radius: 10px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.panel-title {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.panel-sub {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 60%, #3268b8 40%);
+}
+
+.create-form {
+  margin-top: 8px;
+}
+
+.create-form .grow {
+  width: 100%;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+.script-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -4px 0 14px;
+}
+
+.role-hint {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 70%, transparent);
+}
+
+.role-chip {
+  margin: 0;
+}
+
+.create-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.end-preview {
+  font-size: 13px;
+  color: color-mix(in srgb, #19212e 70%, transparent);
+}
+
+.conflict-box {
+  margin-top: 16px;
+}
+
+.conflict-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.conflict-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.conflict-script {
+  font-weight: 700;
+}
+
+.session-banner .banner-title {
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner-meta {
+  margin-top: 6px;
+  font-size: 13px;
+  color: color-mix(in srgb, #19212e 72%, transparent);
+}
+
+.banner-role-genders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.banner-role-chip {
+  margin: 0;
+}
+
+/* 场次列表 */
+.session-list :deep(.el-card__body) {
+  padding: 10px;
+}
+
+.session-item {
+  padding: 12px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.session-item + .session-item {
+  margin-top: 6px;
+}
+
+.session-item:hover {
+  background: color-mix(in srgb, #3268b8 8%, transparent);
+}
+
+.session-item.active {
+  background: color-mix(in srgb, #3268b8 14%, transparent);
+  border-color: color-mix(in srgb, #3268b8 55%, transparent);
+}
+
+.session-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.session-name {
+  font-weight: 800;
+}
+
+.session-item-meta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 66%, transparent);
+}
+
+/* 名单 */
+.roster-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.roster-bar {
+  flex: 1;
+}
+
+.roster-tip {
+  font-size: 13px;
+  color: color-mix(in srgb, #19212e 66%, transparent);
+}
+
+.roster-tip.ok {
+  color: #2f8f46;
+  font-weight: 700;
+}
+
+.roster-join {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.roster-select {
+  flex: 1;
+}
+
+/* 角色册 */
+.role-rule {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: color-mix(in srgb, #19212e 66%, transparent);
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.seat-card {
+  border: 1px dashed color-mix(in srgb, #19212e 22%, transparent);
+  border-radius: 10px;
+  padding: 14px;
+  background: color-mix(in srgb, #f4f7fb 60%, white 40%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seat-card.filled {
+  border-style: solid;
+  border-color: color-mix(in srgb, #3268b8 45%, transparent);
+}
+
+.seat-card.locked {
+  background: color-mix(in srgb, #2f8f46 7%, white 93%);
+  border-color: color-mix(in srgb, #2f8f46 40%, transparent);
+}
+
+.seat-position {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 56%, transparent);
+}
+
+.seat-role {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.seat-player {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.seat-player-name {
+  font-weight: 700;
+}
+
+.seat-empty {
+  color: color-mix(in srgb, #19212e 42%, transparent);
+  font-size: 13px;
+}
+
+.bench {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: color-mix(in srgb, #19212e 5%, transparent);
+}
+
+.bench-label {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.seat-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.seat-hint {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 56%, transparent);
+}
+
+.locked-tip {
+  margin-top: 16px;
+}
+
+/* 换角 */
+.swap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 16px;
+}
+
+.swap-grid .grow {
+  width: 100%;
+}
+
+.swap-flow {
+  font-weight: 700;
+}
+
+.swap-arrow {
+  margin: 0 6px;
+  color: #cf5c36;
+}
+
+.swap-meta {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 60%, transparent);
+}
+
+.swap-review {
+  font-size: 12px;
+  color: #2f6f46;
+  margin-top: 2px;
+}
+
+.swap-done {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 46%, transparent);
+}
+
+/* 版本时间线 */
+.version-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.version-note {
+  font-weight: 700;
+}
+
+.version-by {
+  font-size: 12px;
+  color: color-mix(in srgb, #19212e 56%, transparent);
+}
+
+.version-seats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.version-seat {
+  margin: 0;
+}
+
+.seat-ok {
+  color: #19212e;
+  font-weight: 700;
+}
+
+.seat-blank {
+  color: color-mix(in srgb, #19212e 46%, transparent);
+}
+
+@media (max-width: 980px) {
+  .stage-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-side {
+    position: static;
+  }
+
+  .form-grid,
+  .swap-grid {
+    grid-template-columns: 1fr;
+  }
+}

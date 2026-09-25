@@ -1,20 +1,5 @@
--- 剧本杀门店运营管理系统初始化脚本
--- 角色开演台相关表结构与演示数据（幂等，可重复执行）
-
-CREATE TABLE IF NOT EXISTS operation_records (
-  id SERIAL PRIMARY KEY,
-  module_name VARCHAR(120) NOT NULL,
-  owner_name VARCHAR(80) NOT NULL,
-  status VARCHAR(40) NOT NULL,
-  metric VARCHAR(40) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-INSERT INTO operation_records (module_name, owner_name, status, metric)
-SELECT '剧本库与DM管理', '运营组', 'ready', '100%'
-WHERE NOT EXISTS (SELECT 1 FROM operation_records);
-
--- ---- 角色开演台 ----
+-- 角色开演台：剧本、角色、主持人、场次、名单、抽签版本、座次、换角调整
+-- 兼容 H2(PostgreSQL 模式) 与 PostgreSQL，全部使用 IF NOT EXISTS / WHERE NOT EXISTS 保证可重复执行
 
 CREATE TABLE IF NOT EXISTS scripts (
   id BIGSERIAL PRIMARY KEY,
